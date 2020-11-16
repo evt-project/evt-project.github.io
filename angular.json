@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "evt-web-site"
+    }
+  },
+  "defaultProject": "evt-web-site",
+  "cli": {
+    "analytics": "fe2dad26-90b2-4dfa-9024-d35ac270c8a0"
+  }
 }
