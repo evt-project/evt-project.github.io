@@ -111,7 +111,7 @@
     "file-name-casing": [true, "kebab-case"],
     "interface-over-type-literal": true,
     "no-boolean-literal-compare": true,
-    "space-before-function-paren": true,
+    "space-before-function-paren": false,
     "unnecessary-else": true,
     "newline-before-return": true,
     "no-irregular-whitespace": true,

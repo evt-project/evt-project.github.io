@@ -1,0 +1,33 @@
+<footer class="page-footer blue-grey darken-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <h5 class="white-text">EVT Team</h5>
+                <p class="grey-text text-lighten-4">We are a team of college students from University of Pisa
+                    working on this project under the guide of Professor Roberto Rosselli Del Turco. Any help or
+                    support for the development on this project will be greatly appreciated.</p>
+            </div>
+            <div class="col-12 col-lg-3">
+                <h5 class="white-text">Conferences</h5>
+                <ul>
+                    <li *ngFor="let conference of conferences">
+                        <a class="white-text" [href]="conference.url">{{ conference.label }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-3">
+                <h5 class="white-text">Connect</h5>
+                <ul>
+                    <li *ngFor="let contact of contacts">
+                        <a class="white-text" [href]="contact.url">{{ contact.label }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright blue-grey darken-4">
+        <div class="container">
+            EVT &copy; 2013
+        </div>
+    </div>
+</footer>
