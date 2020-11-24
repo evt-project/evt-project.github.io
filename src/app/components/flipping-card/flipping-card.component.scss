@@ -1,9 +1,48 @@
+.card-container,
+.card-flip {
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+}
+.card-flip {
+    display: grid;
+    grid-template: 1fr/1fr;
+    grid-template-areas: none;
+    grid-template-areas: "frontAndBack";
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+}
+
+.card-flip > div {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.front {
+    grid-area: frontAndBack;
+}
+
+.back {
+    grid-area: frontAndBack;
+    transform: rotateY(-180deg) !important;
+}
+
+.card-container:hover .card-flip {
+    transform: rotateY(180deg);
+}
+
+.card {
+    overflow: hidden;
+    min-height: 341px;
+    border: 0;
+    transition: all 0.5s;
+    box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+}
 .card {
     border: none;
     background: #ffffff;
     height: 341px;
     max-height: 341px;
-    transform-style: preserve-3d;
 
     h5 {
         text-align: center;
@@ -22,22 +61,7 @@
         height: calc(100% - 72px);
     }
 
-    .face {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: inherit;
-    }
-
-    .front {
-        cursor: pointer;
-        backface-visibility: hidden;
-    }
-
     .back {
-        transform: rotateY(180deg);
-        backface-visibility: visible;
         h5 {
             display: flex;
             justify-content: space-between;

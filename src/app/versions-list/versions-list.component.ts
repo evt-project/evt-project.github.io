@@ -12,7 +12,6 @@ export class VersionsListComponent {
     enabled: true,
     title: 'EVT 1',
     image: './assets/images/EVT1.png',
-    state: 'default',
     demo: 'http://evt.labcd.unipi.it/demo/evt_v1-3/dotr/',
     download: {
       link: 'https://sourceforge.net/projects/evt-project/files/evt-1.3.zip/download',
@@ -28,7 +27,6 @@ export class VersionsListComponent {
     enabled: true,
     title: 'EVT 2',
     image: './assets/images/EVT2.png',
-    state: 'default',
     demo: 'http://evt.labcd.unipi.it/demo/evt2-beta2/avicenna/index.html',
     download: {
       link: 'http://evt.labcd.unipi.it/releases/evt2-beta2.zip',
@@ -44,7 +42,6 @@ export class VersionsListComponent {
     enabled: false,
     title: 'EVT 3',
     image: './assets/images/EVT3.png',
-    state: 'default',
     github: 'https://github.com/evt-project/evt-viewer-angular/',
     links: [],
   };
