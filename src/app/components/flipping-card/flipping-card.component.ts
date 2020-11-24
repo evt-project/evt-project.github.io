@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import device from 'current-device';
+import { CardData } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-flipping-card',
@@ -8,19 +8,4 @@ import device from 'current-device';
 })
 export class FlippingCardComponent {
   @Input() cardData: CardData;
-
-  isDesktop = device.desktop();
-}
-
-export interface CardData {
-  title: string;
-  image: string;
-  links: CardLink[];
-}
-
-export interface CardLink {
-  title: string;
-  url: string;
-  label?: string;
-  icon?: string[];
 }

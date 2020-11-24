@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { FlippingCardComponent } from './components/flipping-card/flipping-card.component';
 import { FooterComponent } from './footer/footer.component';
 import { VersionsListComponent } from './versions-list/versions-list.component';
+import { VersionCardComponent } from './components/version-card/version-card.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { VersionsListComponent } from './versions-list/versions-list.component';
     FlippingCardComponent,
     FooterComponent,
     VersionsListComponent,
+    VersionCardComponent,
   ],
   imports: [
     AppRoutingModule,

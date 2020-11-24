@@ -1,0 +1,27 @@
+<app-flipping-card>
+    <div front class="version-card">
+        <img [src]="cardData.image" class="card-img-top" [attr.alt]="cardData.title">
+        <div class="card-body">
+            <h5 class="card-title">{{ cardData.title }}</h5>
+        </div>
+    </div>
+    <div back class="version-card">
+        <div class="card-body pb-0">
+            <h5 class="card-title back-title mb-0">
+                <span>{{ cardData.title }}</span>
+            </h5>
+        </div>
+
+        <div class="card-body card-text pt-0 pb-0">
+            <ng-content select="[content]"></ng-content>
+        </div>
+
+        <div class="card-body card-links text-center">
+            <a class="card-link" *ngFor="let link of cardData.links" [href]="link.url" [title]="link.title || ''"
+                target="_blank">
+                <fa-icon *ngIf="link.icon" [icon]="link.icon" size="lg"></fa-icon>
+                {{link.label || ''}}
+            </a>
+        </div>
+    </div>
+</app-flipping-card>

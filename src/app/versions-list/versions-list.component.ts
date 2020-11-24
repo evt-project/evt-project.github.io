@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import { CardData, CardLink } from '../components/flipping-card/flipping-card.component';
+import { CardLink } from '../interfaces';
+import { VersionData } from '../interfaces';
 
 @Component({
   selector: 'app-versions-list',
@@ -87,16 +88,4 @@ export class VersionsListComponent {
 
     return links;
   }
-}
-
-interface VersionData extends CardData {
-  enabled: boolean;
-  demo?: string;
-  download?: {
-    link: string;
-    label: string;
-    title: string;
-  };
-  github?: string;
-  bugs?: string;
 }

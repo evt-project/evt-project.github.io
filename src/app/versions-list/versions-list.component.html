@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12 col-md-{{12/versions.length}}" *ngIf="evt1.enabled">
-        <app-flipping-card [cardData]="evt1">
+        <app-version-card [cardData]="evt1">
             <div content>
                 <p>Everything is created around the data and the encoded text itself: by applying a single style
                     sheet
@@ -41,10 +41,10 @@
                     enhanced as other developers may see fit.
                 </p>
             </div>
-        </app-flipping-card>
+        </app-version-card>
     </div>
     <div class="col-12 col-md-{{12/versions.length}}" *ngIf="evt2.enabled">
-        <app-flipping-card [cardData]="evt2">
+        <app-version-card [cardData]="evt2">
             <div content>
                 <p>The increasing number of available widgets has made the general layout quite complex with
                     regard to the interaction between them, and complicated to handle. The need for more
@@ -71,14 +71,14 @@
                             viewer</a></li>
                 </ul>
             </div>
-        </app-flipping-card>
+        </app-version-card>
     </div>
 
     <div class="col-12 col-md-{{12/versions.length}}" *ngIf="evt3.enabled">
-        <app-flipping-card [cardData]="evt3">
+        <app-version-card [cardData]="evt3">
             <div content>
                 ... Work in progress ...
             </div>
-        </app-flipping-card>
+        </app-version-card>
     </div>
 </div>
