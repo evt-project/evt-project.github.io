@@ -1,416 +1,382 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>EVT - Edition Visualization Technology</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EVT - Edition Visualization Technology</title>
+<meta content="" name="description"/>
+<meta content="" name="keywords"/>
+<!-- Favicons -->
+<link href="assets/img/favicon.png" rel="icon"/>
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
+<!-- Vendor CSS Files -->
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+<link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+<!-- Main CSS File -->
+<link href="assets/css/main.css" rel="stylesheet"/>
+<!-- =======================================================
   * Template Name: Eterna
   * Template URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
   * Updated: Jun 29 2024 with Bootstrap v5.3.3
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-</head>
+<style id="evt-cards-style">
+/* === EVT Version Cards (no 3D flip; reliable) === */
+.evt-versions { padding-top: 30px; padding-bottom: 40px; }
 
+.evt-card {
+  position: relative;
+  height: 260px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.evt-card-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 8px 14px;
+  z-index: 3;
+}
+
+.evt-card-band.top {
+  top: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.evt-card-band.bottom {
+  bottom: 0;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.evt-card-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.evt-card-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #0d6efd;
+}
+
+/* Reveal panel */
+.evt-card-reveal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 46px;      /* below top band */
+  bottom: 46px;   /* above bottom band */
+  background: rgba(255,255,255,0.96);
+  padding: 14px 14px 12px 14px;
+  transform: translateY(100%);
+  transition: transform 0.35s ease;
+  z-index: 2;
+  overflow: auto;
+}
+
+.evt-card:hover .evt-card-reveal,
+.evt-card.is-open .evt-card-reveal {
+  transform: translateY(0%);
+}
+
+.evt-card-reveal h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.evt-card-reveal p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: #444;
+}
+
+/* Optional: small hint cursor */
+.evt-card { cursor: pointer; }
+.evt-card a { cursor: pointer; }
+</style></head>
 <body class="index-page">
-
-  <header id="header" class="header sticky-top">
-
-    <div class="topbar d-flex align-items-center dark-background">
-      <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:evt.developers@gmail.com">evt.developers@gmail.com</a></i>
-        </div>
-        <div class="social-links d-none d-md-flex align-items-center">
-          <a href="https://github.com/evt-project" target="_blank" class="github"><i class="bi bi-github"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        </div>
-      </div>
-    </div><!-- End Top Bar -->
-
-    <div class="branding">
-
-      <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1 class="sitename">EVT - Edition Visualization Technology<br></h1>
-        </a>
-
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-      </div>
-
-    </div>
-
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-
-      <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-
-        <div class="carousel-item active">
-          <img src="assets/img/hero-carousel/EVT2-criticaledition-1.png" alt="">
-          <div class="carousel-container">
-            <h2><span>EVT</span> - Edition Visualization Technology</h2>
-            <p>A light-weight, open source tool specifically designed to create digital editions from XML-encoded texts, freeing the scholar from the burden of web programming and enabling the final user to browse, explore and study digital editions by means of a user-friendly interface</p>
-            <a href="about.html" class="btn-get-started">More info</a>
-          </div>
-        </div><!-- End Carousel Item -->
-
-        <div class="carousel-item active">
-          <img src="assets/img/hero-carousel/EVT3-Saba-1.jpg" alt="">
-          <div class="carousel-container">
-            <h2><span>EVT</span> - Edition Visualization Technology</h2>
-            <p>A light-weight, open source tool specifically designed to create digital editions from XML-encoded texts, freeing the scholar from the burden of web programming and enabling the final user to browse, explore and study digital editions by means of a user-friendly interface</p>
-            <a href="about.html" class="btn-get-started">More info</a>
-          </div>
-        </div><!-- End Carousel Item -->
-
-        <div class="carousel-item active">
-          <img src="assets/img/hero-carousel/EVT2-criticaledition-2.png" alt="">
-          <div class="carousel-container">
-            <h2><span>DVT</span> - Edition Visualization Technology</h2>
-            <p>A light-weight, open source tool specifically designed to create digital editions from XML-encoded texts, freeing the scholar from the burden of web programming and enabling the final user to browse, explore and study digital editions by means of a user-friendly interface</p>
-            <a href="about.html" class="btn-get-started">Get Started</a>
-          </div>
-        </div><!-- End Carousel Item -->
-
-        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-        </a>
-
-        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
-          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-        </a>
-
-      </div>
-
-      <div class="featured container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="featured-item position-relative">
-              <div class="icon"><i class="bi bi-1-square icon"></i></div>
-              <h4><a href="" class="stretched-link">EVT Version 1</a></h4>
-              <p>An XSLT 2.0 transformation chain is started and the end result is a web-based application – a mix of HTML 5, CSS3 and JavaScript – which can be easily shared on the Web. </p>
-            </div>
-          </div><!-- End Featured Item -->
-
-          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="featured-item position-relative">
-              <div class="icon"><i class="bi bi-2-square icon"></i></div>
-              <h4><a href="" class="stretched-link">EVT Version 2</a></h4>
-              <p>A set of JavaScript parsers specifically written to retrieve edition content directly from the XML file</p>
-            </div>
-          </div><!-- End Featured Item -->
-
-          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="featured-item position-relative">
-              <div class="icon"><i class="bi bi-3-square icon"></i></div>
-              <h4><a href="" class="stretched-link">EVT Version 3</a></h4>
-              <p>The current version, written in Angular</p>
-            </div>
-          </div><!-- End Featured Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="section about">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-          <div class="col-lg-6 order-1 order-lg-2">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 order-2 order-lg-1 content">
-            <h3>About</h3>
-            <p>
+<header class="header sticky-top" id="header">
+<div class="topbar d-flex align-items-center dark-background">
+<div class="container d-flex justify-content-center justify-content-md-between">
+<div class="contact-info d-flex align-items-center">
+<i class="bi bi-envelope d-flex align-items-center">
+<a href="mailto:evt.developers@gmail.com">
+      evt.developers@gmail.com
+     </a>
+</i>
+</div>
+<div class="social-links d-none d-md-flex align-items-center">
+<a class="github" href="https://github.com/evt-project" target="_blank">
+<i class="bi bi-github">
+</i>
+</a>
+<a class="facebook" href="#">
+<i class="bi bi-facebook">
+</i>
+</a>
+</div>
+</div>
+</div>
+<!-- End Top Bar -->
+<div class="branding">
+<div class="container position-relative d-flex align-items-center justify-content-between">
+<a class="logo d-flex align-items-center" href="index.html">
+<!-- Uncomment the line below if you also wish to use an image logo -->
+<!-- <img src="assets/img/logo.png" alt=""> -->
+<h1 class="sitename">
+     EVT - Edition Visualization Technology
+     <br/>
+</h1>
+</a>
+<nav class="navmenu" id="navmenu">
+<ul>
+<li>
+<a class="active" href="index.html">
+       Home
+      </a>
+</li>
+<li>
+<a href="about.html">
+       About
+      </a>
+</li>
+<li>
+<a href="features.html">
+       Features
+      </a>
+</li><li><a href="start.html">Let’s start!</a></li>
+<li>
+<a href="portfolio.html">
+       Portfolio
+      </a>
+</li>
+<li>
+<a href="team.html">
+       Team
+      </a>
+</li>
+<li>
+<a href="blog.html">
+       Blog
+      </a>
+</li><li>
+<a href="contact.html">
+       Contact
+      </a>
+</li>
+</ul>
+<i class="mobile-nav-toggle d-xl-none bi bi-list">
+</i>
+</nav>
+</div>
+</div>
+</header>
+<main class="main">
+<!-- Hero Section -->
+<section class="hero d-flex" id="hero" style="background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('assets/img/hero-bg.jpg') center center / cover no-repeat; min-height: 55vh;padding: 90px 0 70px 0;"><div class="container hero-container position-relative" style="margin-top: 40px;"><div class="container"><div class="carousel-container">
+<h1 style="font-size: 3rem; color: #fff;"><span>EVT</span> - Edition Visualization Technology</h1>
+<p style="color: rgba(255,255,255,0.9); font-size: 1.25rem;">A light-weight, open source tool specifically designed to create digital editions from XML-encoded texts, freeing the scholar from the burden of web programming and enabling the final user to browse, explore and study digital editions by means of a user-friendly interface</p>
+<a class="btn-get-started" href="about.html">More info</a>
+</div></div></div></section><section class="section evt-versions" style="padding-bottom: 40px;"><div class="container"><div class="row gy-4"><div class="col-lg-4 col-md-6"><div class="evt-card" data-evt-card="1" style="background-image: url('assets/img/evt/evt-1.jpg');"><div class="evt-card-band top"><h3 class="evt-card-title">EVT 1</h3></div><div class="evt-card-reveal"><h4>About this version</h4><p>Legacy version focused on TEI-based scholarly editions.</p></div><div class="evt-card-band bottom"><a class="evt-card-link" href="#">Demo</a><a class="evt-card-link" href="#">Archive</a><a class="evt-card-link" href="#">GitHub</a><a class="evt-card-link" href="#">Issues</a></div></div></div><div class="col-lg-4 col-md-6"><div class="evt-card" data-evt-card="1" style="background-image: url('assets/img/evt/evt-2.jpg');"><div class="evt-card-band top"><h3 class="evt-card-title">EVT 2</h3></div><div class="evt-card-reveal"><h4>About this version</h4><p>Current stable version with modular architecture and modern UI.</p></div><div class="evt-card-band bottom"><a class="evt-card-link" href="#">Demo</a><a class="evt-card-link" href="#">Archive</a><a class="evt-card-link" href="#">GitHub</a><a class="evt-card-link" href="#">Issues</a></div></div></div><div class="col-lg-4 col-md-6"><div class="evt-card" data-evt-card="1" style="background-image: url('assets/img/evt/evt-3.jpg');"><div class="evt-card-band top"><h3 class="evt-card-title">EVT 3</h3></div><div class="evt-card-reveal"><h4>About this version</h4><p>Experimental development branch for next-generation EVT features.</p></div><div class="evt-card-band bottom"><a class="evt-card-link" href="#">Demo</a><a class="evt-card-link" href="#">Archive</a><a class="evt-card-link" href="#">GitHub</a><a class="evt-card-link" href="#">Issues</a></div></div></div></div></div></section><!-- /Hero Section -->
+<!-- About Section -->
+<section class="section about" id="about" style="padding-top: 40px;">
+<div class="container" data-aos="fade-up" data-aos-delay="100">
+<div class="row gy-4">
+<div class="col-lg-6 order-1 order-lg-2">
+<img alt="" class="img-fluid" src="assets/img/about.jpg"/>
+</div>
+<div class="col-lg-6 order-2 order-lg-1 content">
+<h3>What's EVT?</h3>
+<p>
               EVT - Edition Visualization Technology was born in the context of the <a href="https://www.collane.unito.it/oa/items/show/201" target="_blank">Digital Vercelli Book project</a>, which has been recently published in a new edition, but it has evolved in a tool suitable to fit different texts and needs. For example, it is now being used to publish <a href="http://pelavicino.labcd.unipi.it/evt/" target="_blank">the digital edition of the Codice Pelavicino</a> manuscript, a medieval codex preserving charters dating back to the XIII century. The continuous development and need to adapt it to different types of documents and TEI-encoded texts has shifted the development focus towards creation of a more general tool for the web publication of TEI-based documents, able to cater for multiple use cases.
             </p>
-            <ul>
-              <li><i class="bi bi-check2-all"></i> <span>Support for TEI scholarly editing modules</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Digital facsimile and diplomatic/semi-diplomatic edition support</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Critical edition support</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Genetic criticism and authorial philology support</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Multiple edition levels</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Named entities support</span></li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item  position-relative">
-              <div class="icon">
-                <i class="bi bi-book"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Critical edition support</h3>
-              </a>
-              <p>Enlarged critical apparatus, variant heat map, witnesses collation and variant filtering are some of the main features developed for the critical edition support.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-bookmarks"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Bookmark</h3>
-              </a>
-              <p>Direct reference to the current view of the web application, considering view mode, current document, page and edition level, eventual collated witnesses and selected apparatus entry.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-stars"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>High level of customization</h3>
-              </a>
-              <p>The editor can customize both the user interface layout and the appearance of the graphical components.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-cc-circle"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Open source</h3>
-              </a>
-              <p>EVT is distributed as open source software, all the current code base is available on <a href="https://github.com/evt-project/evt-viewer/" class="stretched-link">GitHub</a>.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Velit Doloremque</h3>
-              </a>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Dolori Architecto</h3>
-              </a>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Clients Section -->
-    <section id="clients" class="section clients">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Users</h2>
-        <p>Universities and research groups that used <span class="fst-italic">Edition Visualization Technology</span> in their pojects</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
-
-  </main>
-
-  <footer id="footer" class="footer position-relative dark-background">
-
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">Edition Visualization Technology</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>Via Sant'Ottavio, 20</p>
-            <p>10124 Torino TO (Italy)</p>
-            <p><strong>Email:</strong> <span>evt.developers@gmail.com</span></p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Features</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Portfolio</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4 col-md-12">
-          <h4>Follow Us</h4>
-          <p>Discover the EVT project updates</p>
-          <div class="social-links d-flex">
-            <a href="https://github.com/evt-project" target="_blank" class="github"><i class="bi bi-github"></i></a>
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Eterna</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+<ul>
+<li><i class="bi bi-check2-all"></i> <span>Support for TEI scholarly editing modules</span></li>
+<li><i class="bi bi-check2-all"></i> <span>Digital facsimile and diplomatic/semi-diplomatic edition support</span></li>
+<li><i class="bi bi-check2-all"></i> <span>Critical edition support</span></li>
+<li><i class="bi bi-check2-all"></i> <span>Genetic criticism and authorial philology support</span></li>
+<li><i class="bi bi-check2-all"></i> <span>Multiple edition levels</span></li>
+<li><i class="bi bi-check2-all"></i> <span>Named entities support</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section><!-- /About Section -->
+<!-- Services Section -->
+<section class="services section" id="services">
+<div class="container">
+<div class="row gy-4">
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+<div class="service-item position-relative">
+<div class="icon">
+<i class="bi bi-book"></i>
+</div>
+<a class="stretched-link" href="#">
+<h3>Critical edition support</h3>
+</a>
+<p>Enlarged critical apparatus, variant heat map, witnesses collation and variant filtering are some of the main features developed for the critical edition support.</p>
+</div>
+</div><!-- End Service Item -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+<div class="service-item position-relative">
+<div class="icon">
+<i class="bi bi-bookmarks"></i>
+</div>
+<a class="stretched-link" href="#">
+<h3>Bookmark</h3>
+</a>
+<p>Direct reference to the current view of the web application, considering view mode, current document, page and edition level, eventual collated witnesses and selected apparatus entry.</p>
+</div>
+</div><!-- End Service Item -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+<div class="service-item position-relative">
+<div class="icon">
+<i class="bi bi-stars"></i>
+</div>
+<a class="stretched-link" href="#">
+<h3>High level of customization</h3>
+</a>
+<p>The editor can customize both the user interface layout and the appearance of the graphical components.</p>
+</div>
+</div><!-- End Service Item -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+<div class="service-item position-relative">
+<div class="icon">
+<i class="bi bi-cc-circle"></i>
+</div>
+<a class="stretched-link" href="#">
+<h3>Open source</h3>
+</a>
+<p>EVT is distributed as open source software, all the current code base is available on <a class="stretched-link" href="https://github.com/evt-project/evt-viewer/">GitHub</a>.</p>
+<a class="stretched-link" href="#"></a>
+</div>
+</div><!-- End Service Item -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+<div class="service-item position-relative">
+<div class="icon">
+<i class="bi bi-calendar4-week"></i>
+</div>
+<a class="stretched-link" href="#">
+<h3>Velit Doloremque</h3>
+</a>
+<p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
+<a class="stretched-link" href="#"></a>
+</div>
+</div><!-- End Service Item -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+<div class="service-item position-relative">
+<div class="icon">
+<i class="bi bi-chat-square-text"></i>
+</div>
+<a class="stretched-link" href="#">
+<h3>Dolori Architecto</h3>
+</a>
+<p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
+<a class="stretched-link" href="#"></a>
+</div>
+</div><!-- End Service Item -->
+</div>
+</div>
+</section><!-- /Services Section -->
+<!-- Clients Section -->
+<!-- /Clients Section -->
+</main>
+<footer class="footer position-relative dark-background" id="footer">
+<div class="container footer-top">
+<div class="row gy-4">
+<div class="col-lg-4 col-md-6 footer-about">
+<a class="d-flex align-items-center" href="index.html">
+<span class="sitename">Edition Visualization Technology</span>
+</a>
+<div class="footer-contact pt-3">
+<p>Via Sant'Ottavio, 20</p>
+<p>10124 Torino TO (Italy)</p>
+<p><strong>Email:</strong> <span>evt.developers@gmail.com</span></p>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 footer-links">
+<h4>Useful Links</h4>
+<ul>
+<li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+<li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+<li><i class="bi bi-chevron-right"></i> <a href="#">Features</a></li>
+<li><i class="bi bi-chevron-right"></i> <a href="#">Portfolio</a></li>
+</ul>
+</div>
+<div class="col-lg-4 col-md-12">
+<h4>Follow Us</h4>
+<p>Discover the EVT project updates</p>
+<div class="social-links d-flex">
+<a class="github" href="https://github.com/evt-project" target="_blank"><i class="bi bi-github"></i></a>
+<a href=""><i class="bi bi-twitter-x"></i></a>
+<a href=""><i class="bi bi-facebook"></i></a>
+<a href=""><i class="bi bi-instagram"></i></a>
+<a href=""><i class="bi bi-linkedin"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="container copyright text-center mt-4">
+<p>© <span>Copyright</span> <strong class="px-1 sitename">Eterna</strong> <span>All Rights Reserved</span></p>
+<div class="credits">
+<!-- All the links in the footer should remain intact. -->
+<!-- You can delete the links only if you've purchased the pro version. -->
+<!-- Licensing information: https://bootstrapmade.com/license/ -->
+<!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
+</div>
+</div>
+</footer>
+<!-- Scroll Top -->
+<a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Preloader -->
+<div id="preloader"></div>
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+<script>
+document.addEventListener('click', function (e) {
+  const link = e.target.closest('a');
+  if (link && link.closest('.evt-card')) return; // allow normal link clicks
 
-  </footer>
+  const card = e.target.closest('.evt-card');
+  if (!card) return;
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
+  card.classList.toggle('is-open');
+});
+</script></body>
 </html>
