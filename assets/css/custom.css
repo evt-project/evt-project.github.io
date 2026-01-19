@@ -1,0 +1,72 @@
+/* === EVT custom styles === */
+
+/* =========================
+   Header – visual refinement
+   ========================= */
+
+/* Light shadow to detach header from content */
+.header.sticky-top {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Main navigation links */
+#navmenu a,
+#navmenu a:focus {
+  color: #111;
+  font-size: 1.05rem;
+  font-weight: 500;
+  position: relative;
+}
+
+/* Hover + active color */
+#navmenu a:hover,
+#navmenu .active,
+#navmenu .active:focus {
+  color: #0d6efd;
+}
+
+/* Active menu underline (refined) */
+#navmenu a.active::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;          /* visually matches text width */
+  bottom: 2px;         /* close to text baseline */
+  height: 3px;         /* visible but not heavy */
+  background-color: #0d6efd;
+  border-radius: 2px;
+}
+
+/* =========================
+   Footer – dark background refinements
+   ========================= */
+
+.footer.dark-background {
+  padding-bottom: 2.5rem;
+}
+
+.footer.dark-background .footer-top {
+  padding-bottom: 1.5rem;
+}
+
+/* Footer links */
+.footer.dark-background a,
+.footer.dark-background .footer-links a {
+  color: #9ecbff;
+  text-decoration: none;
+}
+
+.footer.dark-background a:hover {
+  color: #cfe6ff;
+}
+
+/* Footer icons */
+.footer.dark-background .bi {
+  color: #9ecbff;
+}
+
+/* Footer text */
+.footer.dark-background p,
+.footer.dark-background li {
+  color: #e0e0e0;
+}
