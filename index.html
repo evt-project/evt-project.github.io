@@ -21,7 +21,7 @@
 <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
 <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
 <!-- Main CSS File -->
-<link href="assets/css/main.css" rel="stylesheet"/>
+<link href="assets/css/main.css" rel="stylesheet"/><link href="assets/css/custom.css" rel="stylesheet"/>
 <!-- =======================================================
   * Template Name: Eterna
   * Template URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
@@ -118,30 +118,38 @@
 /* Optional: small hint cursor */
 .evt-card { cursor: pointer; }
 .evt-card a { cursor: pointer; }
-</style></head>
+</style>
+<style>
+/* Footer refinements */
+.footer.dark-background {
+  padding-bottom: 2.5rem;
+}
+
+.footer.dark-background .footer-top {
+  padding-bottom: 1.5rem;
+}
+
+.footer.dark-background a,
+.footer.dark-background .footer-links a {
+  color: #9ecbff;
+}
+
+.footer.dark-background a:hover {
+  color: #cfe6ff;
+}
+
+.footer.dark-background .bi {
+  color: #9ecbff;
+}
+
+.footer.dark-background p,
+.footer.dark-background li {
+  color: #e0e0e0;
+}
+</style>
+</head>
 <body class="index-page">
 <header class="header sticky-top" id="header">
-<div class="topbar d-flex align-items-center dark-background">
-<div class="container d-flex justify-content-center justify-content-md-between">
-<div class="contact-info d-flex align-items-center">
-<i class="bi bi-envelope d-flex align-items-center">
-<a href="mailto:evt.developers@gmail.com">
-      evt.developers@gmail.com
-     </a>
-</i>
-</div>
-<div class="social-links d-none d-md-flex align-items-center">
-<a class="github" href="https://github.com/evt-project" target="_blank">
-<i class="bi bi-github">
-</i>
-</a>
-<a class="facebook" href="#">
-<i class="bi bi-facebook">
-</i>
-</a>
-</div>
-</div>
-</div>
 <!-- End Top Bar -->
 <div class="branding">
 <div class="container position-relative d-flex align-items-center justify-content-between">
@@ -306,50 +314,65 @@
 <!-- Clients Section -->
 <!-- /Clients Section -->
 </main>
-<footer class="footer position-relative dark-background" id="footer">
-<div class="container footer-top">
+<footer class="footer dark-background" id="footer">
+<div class="footer-top">
+<div class="container">
 <div class="row gy-4">
-<div class="col-lg-4 col-md-6 footer-about">
-<a class="d-flex align-items-center" href="index.html">
-<span class="sitename">Edition Visualization Technology</span>
-</a>
-<div class="footer-contact pt-3">
-<p>Via Sant'Ottavio, 20</p>
-<p>10124 Torino TO (Italy)</p>
-<p><strong>Email:</strong> <span>evt.developers@gmail.com</span></p>
-</div>
+<div class="col-lg-4 col-md-6 footer-info">
+<h4>Edition Visualization Technology</h4>
+<p>Open platform for the visualization of scholarly digital editions.</p>
+<p>
+<a href="contact.html">Contact</a><br/>
+<a href="team.html">Team</a>
+</p>
 </div>
 <div class="col-lg-4 col-md-6 footer-links">
-<h4>Useful Links</h4>
+<h4>Development / Source code</h4>
 <ul>
-<li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-<li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-<li><i class="bi bi-chevron-right"></i> <a href="#">Features</a></li>
-<li><i class="bi bi-chevron-right"></i> <a href="#">Portfolio</a></li>
+<li>
+<i class="bi bi-github"></i>
+<a href="https://github.com/evt-project/evt-viewer-angular/" rel="noopener" target="_blank">
+                Source code repository
+              </a>
+</li>
+<li>
+<i class="bi bi-github"></i>
+<a href="https://github.com/evt-project/evt-viewer-angular/issues" rel="noopener" target="_blank">
+                Issue tracker
+              </a>
+</li>
+<li>
+<i class="bi bi-github"></i>
+<a href="https://github.com/evt-project/" rel="noopener" target="_blank">
+                EVT Project on GitHub
+              </a>
+</li>
 </ul>
 </div>
-<div class="col-lg-4 col-md-12">
-<h4>Follow Us</h4>
-<p>Discover the EVT project updates</p>
-<div class="social-links d-flex">
-<a class="github" href="https://github.com/evt-project" target="_blank"><i class="bi bi-github"></i></a>
-<a href=""><i class="bi bi-twitter-x"></i></a>
-<a href=""><i class="bi bi-facebook"></i></a>
-<a href=""><i class="bi bi-instagram"></i></a>
-<a href=""><i class="bi bi-linkedin"></i></a>
+<div class="col-lg-4 col-md-6 footer-links">
+<h4>Institutional partners</h4>
+<ul>
+<li>
+<a href="https://www.unito.it/" rel="noopener" target="_blank">
+                University of Turin (UNITO)
+              </a>
+</li>
+<li>
+<a href="https://www.dish.unito.it/" rel="noopener" target="_blank">
+                DISH – Department of Humanities
+              </a>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
-<div class="container copyright text-center mt-4">
-<p>© <span>Copyright</span> <strong class="px-1 sitename">Eterna</strong> <span>All Rights Reserved</span></p>
-<div class="credits">
-<!-- All the links in the footer should remain intact. -->
-<!-- You can delete the links only if you've purchased the pro version. -->
-<!-- Licensing information: https://bootstrapmade.com/license/ -->
-<!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-</div>
+<div class="container text-center mt-4">
+<p class="mb-0">
+      © EVT Project 2013-  | 
+      GNU Affero General Public License (AGPL)  | 
+      Designed by <a href="https://bootstrapmade.com/" rel="noopener" target="_blank">BootstrapMade</a>
+</p>
 </div>
 </footer>
 <!-- Scroll Top -->
