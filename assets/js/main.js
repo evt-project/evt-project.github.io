@@ -10,6 +10,41 @@
   "use strict";
 
   /**
+   * =========================================================
+   * HEADER LOGO SWITCH (FULL ↔ COMPACT)
+   * ---------------------------------------------------------
+   * Desktop:  assets/img/brand/evt-logo-full.svg
+   * Mobile:   assets/img/brand/evt-logo.svg
+   *
+   * Keeps the header clean on smaller widths without requiring
+   * per-page HTML variations.
+   * =========================================================
+   */
+  function setHeaderLogoVariant() {
+    const logoImg = document.querySelector('#header .logo img.evt-brand-mark');
+    if (!logoImg) return;
+
+    const fullSrc = 'assets/img/brand/evt-logo-full.svg';
+    const compactSrc = 'assets/img/brand/evt-logo.svg';
+
+    const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+    const desired = isMobile ? compactSrc : fullSrc;
+
+    const current = (logoImg.getAttribute('src') || '').trim();
+    if (current !== desired) logoImg.setAttribute('src', desired);
+  }
+
+  document.addEventListener('DOMContentLoaded', setHeaderLogoVariant);
+  window.addEventListener('load', setHeaderLogoVariant);
+
+  if (window.matchMedia) {
+    const mq = window.matchMedia('(max-width: 768px)');
+    if (mq.addEventListener) mq.addEventListener('change', setHeaderLogoVariant);
+    else if (mq.addListener) mq.addListener(setHeaderLogoVariant); // Safari legacy
+  }
+
+
+  /**
    * Apply .scrolled class to the body as the page is scrolled down
    */
   function toggleScrolled() {

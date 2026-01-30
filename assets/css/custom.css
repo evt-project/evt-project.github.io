@@ -70,3 +70,250 @@
 .footer.dark-background li {
   color: #e0e0e0;
 }
+/* =========================================================
+   EVT: Feature cards (uniform, image-top, no large icon)
+   ---------------------------------------------------------
+   Replaces the boxes under "What's EVT?"
+   - No large icon
+   - No intrusive blue highlight
+   - Uniform card heights and cleaner layout
+   - Darker, more readable text
+   ========================================================= */
+
+.evt-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.evt-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e6e9ee;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(31, 79, 163, 0.04);
+  transition: transform .18s ease, box-shadow .18s ease;
+  min-height: 310px;
+}
+
+.evt-card-media {
+  height: 160px;
+  overflow: hidden;
+  background: #f7f9fb;
+}
+
+.evt-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.evt-card-body {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+
+.evt-card-title {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  color: #222;
+  font-weight: 600;
+}
+
+.evt-card-desc {
+  margin: 0;
+  color: #334155;
+  line-height: 1.45;
+  font-size: 0.95rem;
+  flex: 1 1 auto;
+}
+
+.evt-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(31, 79, 163, 0.08);
+}
+
+/* Responsive layout */
+@media (max-width: 992px) {
+  .evt-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .evt-card { min-height: 300px; }
+  .evt-card-media { height: 140px; }
+}
+
+@media (max-width: 576px) {
+  .evt-cards-grid { grid-template-columns: 1fr; gap: 18px; }
+  .evt-card { min-height: auto; }
+  .evt-card-media { height: 200px; }
+}
+
+
+/* =========================================================
+   EVT: Home feature cards (replaces icon boxes under What's EVT?)
+   ---------------------------------------------------------
+   Context:
+   - Home page, immediately below "What's EVT?"
+   - Replaces the old icon-heavy service boxes (intrusive blue hover,
+     inconsistent heights) with compact image-top cards.
+   Design goals:
+   - No large icons
+   - Subtle hover (no blue background)
+   - Consistent card heights across rows
+   - Darker, more readable text
+   ========================================================= */
+
+.evt-features-section {
+  padding-top: 10px;   /* reduce gap from previous section */
+  padding-bottom: 40px;
+}
+
+.evt-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.evt-feature-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e6e9ee;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+  min-height: 270px;
+}
+
+.evt-feature-media {
+  height: 150px;
+  background: #f7f9fb;
+  overflow: hidden;
+}
+
+.evt-feature-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.evt-feature-body {
+  padding: 16px 18px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 auto;
+}
+
+.evt-feature-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1b1f24;
+}
+
+.evt-feature-desc {
+  margin: 0;
+  color: #334155;
+  line-height: 1.45;
+  font-size: 0.95rem;
+  flex: 1 1 auto;
+}
+
+.evt-feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.10);
+}
+
+@media (max-width: 992px) {
+  .evt-feature-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .evt-feature-grid { grid-template-columns: 1fr; }
+  .evt-feature-media { height: 190px; }
+}
+
+/* =========================================================
+   EVT: Feature-card title links (Home + Features)
+   ---------------------------------------------------------
+   Make card titles clearly clickable without intrusive UI.
+   - Default: dark title (readable)
+   - Hover: accent blue + subtle underline
+   ========================================================= */
+
+.evt-feature-title a.evt-feature-title-link {
+  color: #1b1f24;
+  text-decoration: none;
+}
+
+.evt-feature-title a.evt-feature-title-link:hover {
+  color: var(--evt-accent);
+  text-decoration: underline;
+}
+
+/* =========================================================
+   EVT: Color unification (accent + footer)
+   ---------------------------------------------------------
+   Goal:
+   - Use one consistent EVT blue across the site (links, buttons, navbar active).
+   - Keep footer links slightly lighter for readability on dark background.
+   Notes:
+   - OVERRIDES only (do not remove earlier template rules).
+   - Uses !important sparingly where the template is aggressive.
+   ========================================================= */
+
+:root {
+  --evt-accent: #1f4fa3;         /* EVT primary blue */
+  --evt-accent-footer: #9ecbff;  /* matches existing footer link tone */
+}
+
+/* Navbar: hover + active */
+#navmenu a:hover,
+#navmenu .active,
+#navmenu .active:focus {
+  color: var(--evt-accent) !important;
+}
+
+/* Navbar underline */
+#navmenu a.active::after {
+  background-color: var(--evt-accent) !important;
+}
+
+/* Global links */
+a,
+a:focus {
+  color: var(--evt-accent);
+}
+a:hover {
+  color: var(--evt-accent);
+}
+
+/* Footer (keep lighter tone; you asked footer may remain lighter) */
+.footer.dark-background a,
+.footer.dark-background .footer-links a,
+.footer.dark-background .bi {
+  color: var(--evt-accent-footer);
+}
+
+/* =========================================================
+   EVT: Home feature cards – spacing tweak
+   ---------------------------------------------------------
+   Tighten the vertical gap between “What’s EVT?” and the new
+   feature-card grid on Home and Features pages.
+   ========================================================= */
+
+.evt-features-section {
+  padding-top: 4px !important;  /* tighter than previous 10px */
+}
