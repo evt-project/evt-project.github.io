@@ -1,385 +1,484 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>EVT - Edition Visualization Technology</title>
-<meta content="" name="description"/>
-<meta content="" name="keywords"/>
-<!-- Favicons -->
-<link href="assets/img/favicon.png" rel="icon"/>
-<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
-<!-- Vendor CSS Files -->
-<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
-<link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
-<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
-<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
-<!-- Main CSS File -->
-<link href="assets/css/main.css" rel="stylesheet"/><link href="assets/css/custom.css" rel="stylesheet"/>
-<!-- =======================================================
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>EVT - Edition Visualization Technology</title>
+  <meta content="" name="description" />
+  <meta content="" name="keywords" />
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+  <link href="assets/css/custom.css" rel="stylesheet" />
+  <!-- =======================================================
   * Template Name: Eterna
   * Template URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
   * Updated: Jun 29 2024 with Bootstrap v5.3.3
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-<style id="evt-cards-style">
-/* === EVT Version Cards (no 3D flip; reliable) === */
-.evt-versions { padding-top: 30px; padding-bottom: 40px; }
+  <style id="evt-cards-style">
+    /* === EVT Version Cards (no 3D flip; reliable) === */
+    .evt-versions {
+      padding-top: 30px;
+      padding-bottom: 40px;
+    }
 
-.evt-card {
-  position: relative;
-  height: 260px;
-  border-radius: 10px;
-  overflow: hidden;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
+    .evt-card {
+      position: relative;
+      height: 260px;
+      border-radius: 10px;
+      overflow: hidden;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
 
-.evt-card-band {
-  position: absolute;
-  left: 0;
-  right: 0;
-  background: #ffffff;
-  padding: 8px 14px;
-  z-index: 3;
-}
+    .evt-card-band {
+      position: absolute;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      padding: 8px 14px;
+      z-index: 3;
+    }
 
-.evt-card-band.top {
-  top: 0;
-  border-bottom: 1px solid #e0e0e0;
-}
+    .evt-card-band.top {
+      top: 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
 
-.evt-card-band.bottom {
-  bottom: 0;
-  border-top: 1px solid #e0e0e0;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+    .evt-card-band.bottom {
+      bottom: 0;
+      border-top: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-.evt-card-title {
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #111;
-}
+    .evt-card-title {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #111;
+    }
 
-.evt-card-link {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: #0d6efd;
-}
+    .evt-card-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #0d6efd;
+    }
 
-/* Reveal panel */
-.evt-card-reveal {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 46px;      /* below top band */
-  bottom: 46px;   /* above bottom band */
-  background: rgba(255,255,255,0.96);
-  padding: 14px 14px 12px 14px;
-  transform: translateY(100%);
-  transition: transform 0.35s ease;
-  z-index: 2;
-  overflow: auto;
-}
+    /* Reveal panel */
+    .evt-card-reveal {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 46px;
+      /* below top band */
+      bottom: 46px;
+      /* above bottom band */
+      background: rgba(255, 255, 255, 0.96);
+      padding: 14px 14px 12px 14px;
+      transform: translateY(100%);
+      transition: transform 0.35s ease;
+      z-index: 2;
+      overflow: auto;
+    }
 
-.evt-card:hover .evt-card-reveal,
-.evt-card.is-open .evt-card-reveal {
-  transform: translateY(0%);
-}
+    .evt-card:hover .evt-card-reveal,
+    .evt-card.is-open .evt-card-reveal {
+      transform: translateY(0%);
+    }
 
-.evt-card-reveal h4 {
-  margin: 0 0 8px 0;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #111;
-}
+    .evt-card-reveal h4 {
+      margin: 0 0 8px 0;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111;
+    }
 
-.evt-card-reveal p {
-  margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.35;
-  color: #444;
-}
+    .evt-card-reveal p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.35;
+      color: #444;
+    }
 
-/* Optional: small hint cursor */
-.evt-card { cursor: pointer; }
-.evt-card a { cursor: pointer; }
-</style>
-<style>
-/* Footer refinements */
-.footer.dark-background {
-  padding-bottom: 2.5rem;
-}
+    /* Optional: small hint cursor */
+    .evt-card {
+      cursor: pointer;
+    }
 
-.footer.dark-background .footer-top {
-  padding-bottom: 1.5rem;
-}
+    .evt-card a {
+      cursor: pointer;
+    }
+  </style>
+  <style>
+    /* Footer refinements */
+    .footer.dark-background {
+      padding-bottom: 2.5rem;
+    }
 
-.footer.dark-background a,
-.footer.dark-background .footer-links a {
-  color: #9ecbff;
-}
+    .footer.dark-background .footer-top {
+      padding-bottom: 1.5rem;
+    }
 
-.footer.dark-background a:hover {
-  color: #cfe6ff;
-}
+    .footer.dark-background a,
+    .footer.dark-background .footer-links a {
+      color: #9ecbff;
+    }
 
-.footer.dark-background .bi {
-  color: #9ecbff;
-}
+    .footer.dark-background a:hover {
+      color: #cfe6ff;
+    }
 
-.footer.dark-background p,
-.footer.dark-background li {
-  color: #e0e0e0;
-}
-</style>
+    .footer.dark-background .bi {
+      color: #9ecbff;
+    }
+
+    .footer.dark-background p,
+    .footer.dark-background li {
+      color: #e0e0e0;
+    }
+  </style>
 </head>
+
 <body class="index-page">
-<header class="header sticky-top" id="header">
-<!-- End Top Bar -->
-<div class="branding">
-<div class="container position-relative d-flex align-items-center justify-content-between">
-<a class="logo d-flex align-items-center" href="index.html"><img alt="EVT" class="evt-brand-mark" src="assets/img/brand/evt-logo-full.svg"/></a>
-<nav class="navmenu" id="navmenu">
-<ul>
-<li>
-<a class="active" href="index.html">
-       Home
-      </a>
-</li>
-<li>
-<a href="about.html">
-       About
-      </a>
-</li>
-<li>
-<a href="features.html">
-       Features
-      </a>
-</li><li><a href="start.html">Let’s start!</a></li>
-<li>
-<a href="portfolio.html">
-       Portfolio
-      </a>
-</li>
-<li>
-<a href="team.html">
-       Team
-      </a>
-</li>
-<li>
-<a href="blog.html">
-       Blog
-      </a>
-</li><li>
-<a href="contact.html">
-       Contact
-      </a>
-</li>
-</ul>
-<i class="mobile-nav-toggle d-xl-none bi bi-list">
-</i>
-</nav>
-</div>
-</div>
-</header>
-<main class="main">
-<!-- Hero Section -->
-<section class="hero d-flex" id="hero" style="background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('assets/img/hero-bg.jpg') center center / cover no-repeat; min-height: 55vh;padding: 90px 0 70px 0;"><div class="container hero-container position-relative" style="margin-top: 40px;"><div class="container"><div class="carousel-container">
-<h1 style="font-size: 3rem; color: #fff;"><span>EVT</span> - Edition Visualization Technology</h1>
-<p style="color: rgba(255,255,255,0.9); font-size: 1.25rem;">A light-weight, open source tool specifically designed to create digital editions from XML-encoded texts, freeing the scholar from the burden of web programming and enabling the final user to browse, explore and study digital editions by means of a user-friendly interface</p>
-<a class="btn-get-started" href="about.html">More info</a>
-</div></div></div></section><section class="section evt-versions" style="padding-bottom: 40px;"><div class="container"><div class="row gy-4"><div class="col-lg-4 col-md-6"><div class="evt-card" data-evt-card="1" style="background-image: url('assets/img/evt/evt-1.jpg');"><div class="evt-card-band top"><h3 class="evt-card-title">EVT 1</h3></div><div class="evt-card-reveal"><h4>About this version</h4><p>Legacy version focused on TEI-based scholarly editions.</p></div><div class="evt-card-band bottom"><a class="evt-card-link" href="#">Demo</a><a class="evt-card-link" href="#">Archive</a><a class="evt-card-link" href="#">GitHub</a><a class="evt-card-link" href="#">Issues</a></div></div></div><div class="col-lg-4 col-md-6"><div class="evt-card" data-evt-card="1" style="background-image: url('assets/img/evt/evt-2.jpg');"><div class="evt-card-band top"><h3 class="evt-card-title">EVT 2</h3></div><div class="evt-card-reveal"><h4>About this version</h4><p>Current stable version with modular architecture and modern UI.</p></div><div class="evt-card-band bottom"><a class="evt-card-link" href="#">Demo</a><a class="evt-card-link" href="#">Archive</a><a class="evt-card-link" href="#">GitHub</a><a class="evt-card-link" href="#">Issues</a></div></div></div><div class="col-lg-4 col-md-6"><div class="evt-card" data-evt-card="1" style="background-image: url('assets/img/evt/evt-3.jpg');"><div class="evt-card-band top"><h3 class="evt-card-title">EVT 3</h3></div><div class="evt-card-reveal"><h4>About this version</h4><p>Experimental development branch for next-generation EVT features.</p></div><div class="evt-card-band bottom"><a class="evt-card-link" href="#">Demo</a><a class="evt-card-link" href="#">Archive</a><a class="evt-card-link" href="#">GitHub</a><a class="evt-card-link" href="#">Issues</a></div></div></div></div></div></section><!-- /Hero Section -->
-<!-- About Section -->
-<section class="section about" id="about" style="padding-top: 40px;">
-<div class="container" data-aos="fade-up" data-aos-delay="100">
-<div class="row gy-4">
-<div class="col-lg-6 order-1 order-lg-2">
-<img alt="" class="img-fluid" src="assets/img/about.jpg"/>
-</div>
-<div class="col-lg-6 order-2 order-lg-1 content">
-<h3>What's EVT?</h3>
-<p>
-              EVT - Edition Visualization Technology was born in the context of the <a href="https://www.collane.unito.it/oa/items/show/201" target="_blank">Digital Vercelli Book project</a>, which has been recently published in a new edition, but it has evolved in a tool suitable to fit different texts and needs. For example, it is now being used to publish <a href="http://pelavicino.labcd.unipi.it/evt/" target="_blank">the digital edition of the Codice Pelavicino</a> manuscript, a medieval codex preserving charters dating back to the XIII century. The continuous development and need to adapt it to different types of documents and TEI-encoded texts has shifted the development focus towards creation of a more general tool for the web publication of TEI-based documents, able to cater for multiple use cases.
+  <header class="header sticky-top" id="header">
+    <!-- End Top Bar -->
+    <div class="branding">
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a class="logo d-flex align-items-center" href="index.html"><img alt="EVT" class="evt-brand-mark"
+            src="assets/img/brand/evt-logo-full.svg" /></a>
+        <nav class="navmenu" id="navmenu">
+          <ul>
+            <li>
+              <a class="active" href="index.html">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="about.html">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="features.html">
+                Features
+              </a>
+            </li>
+            <li><a href="start.html">Let’s start!</a></li>
+            <li>
+              <a href="portfolio.html">
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a href="team.html">
+                Team
+              </a>
+            </li>
+            <li>
+              <a href="blog.html">
+                Blog
+              </a>
+            </li>
+            <li>
+              <a href="contact.html">
+                Contact
+              </a>
+            </li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list">
+          </i>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="hero d-flex" id="hero"
+      style="background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('assets/img/evt/EVT3-DOTR-1.jpg') center center / cover no-repeat; min-height: 55vh;padding: 90px 0 70px 0;">
+      <div class="container hero-container position-relative" style="margin-top: 40px;">
+        <div class="container">
+          <div class="carousel-container">
+            <h1 style="font-size: 3rem; color: #fff;"><span>EVT</span> - Edition Visualization Technology</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.25rem;">A light-weight, open source tool specifically
+              designed to create digital editions from XML-encoded texts, freeing the scholar from the burden of web
+              programming and enabling the final user to browse, explore and study digital editions by means of a
+              user-friendly interface</p>
+            <a class="btn-get-started" href="about.html">More info</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section evt-versions" style="padding-bottom: 40px;">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="evt-card" data-evt-card="1" style="background-image: url('assets/img/evt/evt-1.jpg');">
+              <div class="evt-card-band top">
+                <h3 class="evt-card-title">EVT 1</h3>
+              </div>
+              <div class="evt-card-reveal">
+                <h4>About this version</h4>
+                <p>Legacy version focused on TEI-based scholarly editions.</p>
+              </div>
+              <div class="evt-card-band bottom"><a class="evt-card-link" href="#">Demo</a><a class="evt-card-link"
+                  href="#">Archive</a><a class="evt-card-link" href="#">GitHub</a><a class="evt-card-link"
+                  href="#">Issues</a></div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="evt-card" data-evt-card="1" style="background-image: url('assets/img/evt/evt-2.jpg');">
+              <div class="evt-card-band top">
+                <h3 class="evt-card-title">EVT 2</h3>
+              </div>
+              <div class="evt-card-reveal">
+                <h4>About this version</h4>
+                <p>Current stable version with modular architecture and modern UI.</p>
+              </div>
+              <div class="evt-card-band bottom"><a class="evt-card-link" href="#">Demo</a><a class="evt-card-link"
+                  href="#">Archive</a><a class="evt-card-link" href="#">GitHub</a><a class="evt-card-link"
+                  href="#">Issues</a></div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="evt-card" data-evt-card="1" style="background-image: url('assets/img/evt/evt-3.jpg');">
+              <div class="evt-card-band top">
+                <h3 class="evt-card-title">EVT 3</h3>
+              </div>
+              <div class="evt-card-reveal">
+                <h4>About this version</h4>
+                <p>Experimental development branch for next-generation EVT features.</p>
+              </div>
+              <div class="evt-card-band bottom"><a class="evt-card-link" href="#">Demo</a><a class="evt-card-link"
+                  href="#">Archive</a><a class="evt-card-link" href="#">GitHub</a><a class="evt-card-link"
+                  href="#">Issues</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Hero Section -->
+    <!-- About Section -->
+    <section class="section about" id="about" style="padding-top: 40px;">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img alt="" class="img-fluid" src="assets/img/evt/EVT3-Saba-1.jpg" />
+          </div>
+          <div class="col-lg-6 order-2 order-lg-1 content">
+            <h3>What's EVT?</h3>
+            <p>
+              EVT - Edition Visualization Technology was born in the context of the <a
+                href="https://www.collane.unito.it/oa/items/show/201" target="_blank">Digital Vercelli Book project</a>,
+              which has been recently published in a new edition, but it has evolved in a tool suitable to fit different
+              texts and needs. For example, it is now being used to publish <a
+                href="http://pelavicino.labcd.unipi.it/evt/" target="_blank">the digital edition of the Codice
+                Pelavicino</a> manuscript, a medieval codex preserving charters dating back to the XIII century. The
+              continuous development and need to adapt it to different types of documents and TEI-encoded texts has
+              shifted the development focus towards creation of a more general tool for the web publication of TEI-based
+              documents, able to cater for multiple use cases.
             </p>
-<ul>
-<li><i class="bi bi-check2-all"></i> <span>Support for TEI scholarly editing modules</span></li>
-<li><i class="bi bi-check2-all"></i> <span>Digital facsimile and diplomatic/semi-diplomatic edition support</span></li>
-<li><i class="bi bi-check2-all"></i> <span>Critical edition support</span></li>
-<li><i class="bi bi-check2-all"></i> <span>Genetic criticism and authorial philology support</span></li>
-<li><i class="bi bi-check2-all"></i> <span>Multiple edition levels</span></li>
-<li><i class="bi bi-check2-all"></i> <span>Named entities support</span></li>
-</ul>
-</div>
-</div>
-</div>
-</section><!-- /About Section -->
-<!-- Services Section -->
-<section class="services section evt-features-section" id="services">
+            <p>EVT is open source software, available for everybody to customize and modify. It is also based on the client-only
+              architecture, which means that creating an EVT-based edition is as simple as copying the edition folder on a web
+              server.</p>
+            <!--<ul>
+              <li><i class="bi bi-check2-all"></i> <span>Support for TEI scholarly editing modules</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Digital facsimile and diplomatic/semi-diplomatic edition
+                  support</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Critical edition support</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Genetic criticism and authorial philology support</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Multiple edition levels</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Named entities support</span></li>
+            </ul>-->
+          </div>
+        </div>
+      </div>
+    </section><!-- /About Section -->
+    <!-- Services Section -->
+    <section class="services section evt-features-section" id="services">
 
 
-<div class="container" data-aos="fade-up" data-aos-delay="100">
-<div class="evt-feature-grid">
-<article class="evt-feature-card">
-<div class="evt-feature-media">
-<img alt="Feature placeholder 1" loading="lazy" src="assets/img/placeholders/feature-1.jpg"/>
-</div>
-<div class="evt-feature-body">
-<h3 class="evt-feature-title"><a class="evt-feature-title-link" href="features.html">Critical edition support</a></h3>
-<p class="evt-feature-desc">Enlarged critical apparatus, witnesses collation and variant filtering.</p>
-</div>
-</article>
-<article class="evt-feature-card">
-<div class="evt-feature-media">
-<img alt="Feature placeholder 2" loading="lazy" src="assets/img/placeholders/feature-2.jpg"/>
-</div>
-<div class="evt-feature-body">
-<h3 class="evt-feature-title"><a class="evt-feature-title-link" href="features.html">Bookmarking</a></h3>
-<p class="evt-feature-desc">Direct links to the current view (document, page, edition level, and selections).</p>
-</div>
-</article>
-<article class="evt-feature-card">
-<div class="evt-feature-media">
-<img alt="Feature placeholder 3" loading="lazy" src="assets/img/placeholders/feature-3.jpg"/>
-</div>
-<div class="evt-feature-body">
-<h3 class="evt-feature-title"><a class="evt-feature-title-link" href="features.html">Customization</a></h3>
-<p class="evt-feature-desc">Adapt layout and appearance to your edition’s needs without heavy web programming.</p>
-</div>
-</article>
-<article class="evt-feature-card">
-<div class="evt-feature-media">
-<img alt="Feature placeholder 4" loading="lazy" src="assets/img/placeholders/feature-4.jpg"/>
-</div>
-<div class="evt-feature-body">
-<h3 class="evt-feature-title"><a class="evt-feature-title-link" href="features.html">Open source</a></h3>
-<p class="evt-feature-desc">Public codebase on GitHub, with issue tracking and community contributions.</p>
-</div>
-</article>
-<article class="evt-feature-card">
-<div class="evt-feature-media">
-<img alt="Feature placeholder 5" loading="lazy" src="assets/img/placeholders/feature-5.jpg"/>
-</div>
-<div class="evt-feature-body">
-<h3 class="evt-feature-title"><a class="evt-feature-title-link" href="features.html">Multiple edition levels</a></h3>
-<p class="evt-feature-desc">Support for diplomatic, semi-diplomatic, critical, and other reading levels.</p>
-</div>
-</article>
-<article class="evt-feature-card">
-<div class="evt-feature-media">
-<img alt="Feature placeholder 6" loading="lazy" src="assets/img/placeholders/feature-6.jpg"/>
-</div>
-<div class="evt-feature-body">
-<h3 class="evt-feature-title"><a class="evt-feature-title-link" href="features.html">Named entities</a></h3>
-<p class="evt-feature-desc">Entity-aware navigation for people, places, and other references.</p>
-</div>
-</article>
-</div>
-</div>
-</section><!-- /Services Section -->
-<!-- Clients Section -->
-<!-- /Clients Section -->
-</main>
-<footer class="footer dark-background" id="footer">
-<div class="footer-top">
-<div class="container">
-<div class="row gy-4">
-<div class="col-lg-4 col-md-6 footer-info">
-<h4>Edition Visualization Technology</h4>
-<p>Open platform for the visualization of scholarly digital editions.</p>
-<p>
-<a href="contact.html">Contact</a><br/>
-<a href="team.html">Team</a>
-</p>
-</div>
-<div class="col-lg-4 col-md-6 footer-links">
-<h4>Development / Source code</h4>
-<ul>
-<li>
-<i class="bi bi-github"></i>
-<a href="https://github.com/evt-project/evt-viewer-angular/" rel="noopener" target="_blank">
-                Source code repository
-              </a>
-</li>
-<li>
-<i class="bi bi-github"></i>
-<a href="https://github.com/evt-project/evt-viewer-angular/issues" rel="noopener" target="_blank">
-                Issue tracker
-              </a>
-</li>
-<li>
-<i class="bi bi-github"></i>
-<a href="https://github.com/evt-project/" rel="noopener" target="_blank">
-                EVT Project on GitHub
-              </a>
-</li>
-</ul>
-</div>
-<div class="col-lg-4 col-md-6 footer-links">
-<h4>Institutional partners</h4>
-<ul>
-<li>
-<a href="https://www.unito.it/" rel="noopener" target="_blank">
-                University of Turin (UNITO)
-              </a>
-</li>
-<li>
-<a href="https://www.dish.unito.it/" rel="noopener" target="_blank">
-                DISH – Department of Humanities
-              </a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="container text-center mt-4">
-<p class="mb-0">
-      © EVT Project 2013-  | 
-      GNU Affero General Public License (AGPL)  | 
-      Designed by <a href="https://bootstrapmade.com/" rel="noopener" target="_blank">BootstrapMade</a>
-</p>
-</div>
-</footer>
-<!-- Scroll Top -->
-<a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
-<!-- Preloader -->
-<div id="preloader"></div>
-<!-- Vendor JS Files -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
-<script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<!-- Main JS File -->
-<script src="assets/js/main.js"></script>
-<script>
-document.addEventListener('click', function (e) {
-  const link = e.target.closest('a');
-  if (link && link.closest('.evt-card')) return; // allow normal link clicks
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="evt-feature-grid">
+          <article class="evt-feature-card">
+            <div class="evt-feature-media">
+              <img alt="Feature placeholder 1" loading="lazy" src="assets/img/evt/EVT2-criticaledition-2.jpg" />
+            </div>
+            <div class="evt-feature-body">
+              <h3 class="evt-feature-title"><a class="evt-feature-title-link" href="features.html">Critical edition
+                  support</a></h3>
+              <p class="evt-feature-desc">Enlarged critical apparatus, witnesses collation and variant filtering.</p>
+            </div>
+          </article>
+          <article class="evt-feature-card">
+            <div class="evt-feature-media">
+              <img alt="Feature placeholder 2" loading="lazy" src="assets/img/evt/EVT2-Sforza-2-map.jpg" />
+            </div>
+            <div class="evt-feature-body">
+              <h3 class="evt-feature-title"><a class="evt-feature-title-link" href="features.html">Digital facsimile and transcription</a></h3>
+              <p class="evt-feature-desc">Diplomatic and interpretative editions accompanied by a digital facsimile of the
+                original document.</p>
+            </div>
+          </article>
+          <article class="evt-feature-card">
+            <div class="evt-feature-media">
+              <img alt="Feature placeholder 3" loading="lazy" src="assets/img/evt/EVT2-Conti-1.jpg" />
+            </div>
+            <div class="evt-feature-body">
+              <h3 class="evt-feature-title"><a class="evt-feature-title-link" href="features.html">Customization</a>
+              </h3>
+              <p class="evt-feature-desc">Adapt layout and appearance to your edition’s needs without heavy web
+                programming.</p>
+            </div>
+          </article>
+          <article class="evt-feature-card">
+            <div class="evt-feature-media">
+              <img alt="Feature placeholder 4" loading="lazy" src="assets/img/evt/EVT3-GitHub.jpg" />
+            </div>
+            <div class="evt-feature-body">
+              <h3 class="evt-feature-title"><a class="evt-feature-title-link" href="features.html">Open source</a></h3>
+              <p class="evt-feature-desc">Public codebase on GitHub, with issue tracking and community contributions.
+              </p>
+            </div>
+          </article>
+          <article class="evt-feature-card">
+            <div class="evt-feature-media">
+              <img alt="Feature placeholder 5" loading="lazy" src="assets/img/evt/EVT3-edition-levels.jpg" />
+            </div>
+            <div class="evt-feature-body">
+              <h3 class="evt-feature-title"><a class="evt-feature-title-link" href="features.html">Multiple edition
+                  levels</a></h3>
+              <p class="evt-feature-desc">Support for diplomatic, semi-diplomatic, critical, and other reading levels.
+              </p>
+            </div>
+          </article>
+          <article class="evt-feature-card">
+            <div class="evt-feature-media">
+              <img alt="Feature placeholder 6" loading="lazy" src="assets/img/evt/EVT2-Sforza-3-named entities.jpg" />
+            </div>
+            <div class="evt-feature-body">
+              <h3 class="evt-feature-title"><a class="evt-feature-title-link" href="features.html">Named entities</a>
+              </h3>
+              <p class="evt-feature-desc">Entity-aware navigation for people, places, and other references.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section><!-- /Services Section -->
+    <!-- Clients Section -->
+    <!-- /Clients Section -->
+  </main>
+  <footer class="footer dark-background" id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-info">
+            <h4>Edition Visualization Technology</h4>
+            <p>Open platform for the visualization of scholarly digital editions.</p>
+            <p>
+              <a href="contact.html">Contact</a><br />
+              <a href="team.html">Team</a>
+            </p>
+          </div>
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Development / Source code</h4>
+            <ul>
+              <li>
+                <i class="bi bi-github"></i>
+                <a href="https://github.com/evt-project/evt-viewer-angular/" rel="noopener" target="_blank">
+                  Source code repository
+                </a>
+              </li>
+              <li>
+                <i class="bi bi-github"></i>
+                <a href="https://github.com/evt-project/evt-viewer-angular/issues" rel="noopener" target="_blank">
+                  Issue tracker
+                </a>
+              </li>
+              <li>
+                <i class="bi bi-github"></i>
+                <a href="https://github.com/evt-project/" rel="noopener" target="_blank">
+                  EVT Project on GitHub
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Institutional partners</h4>
+            <ul>
+              <li>
+                <a href="https://www.unito.it/" rel="noopener" target="_blank">
+                  University of Turin (UNITO)
+                </a>
+              </li>
+              <li>
+                <a href="https://www.dish.unito.it/" rel="noopener" target="_blank">
+                  DISH – Department of Humanities
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container text-center mt-4">
+      <p class="mb-0">
+        © EVT Project 2013-  | 
+        GNU Affero General Public License (AGPL)  | 
+        Designed by <a href="https://bootstrapmade.com/" rel="noopener" target="_blank">BootstrapMade</a>
+      </p>
+    </div>
+  </footer>
+  <!-- Scroll Top -->
+  <a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i
+      class="bi bi-arrow-up-short"></i></a>
+  <!-- Preloader -->
+  <div id="preloader"></div>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (link && link.closest('.evt-card')) return; // allow normal link clicks
 
-  const card = e.target.closest('.evt-card');
-  if (!card) return;
+      const card = e.target.closest('.evt-card');
+      if (!card) return;
 
-  card.classList.toggle('is-open');
-});
-</script></body>
+      card.classList.toggle('is-open');
+    });
+  </script>
+</body>
+
 </html>
